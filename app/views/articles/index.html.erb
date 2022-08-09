@@ -1,19 +1,8 @@
-<div class="container mt-4 ">
-  <h1>My tasks</h1>
-  <ul class="list-group mt-4">
-    <% @tasks.each do |task| %>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <div class="">
-          <% if task.completed %> 
-            <i class="fa-regular fa-square-check"></i>
-          <% else %>
-            <i class="fa-regular fa-square"></i>
-          <% end %>
-        </div>
-        <p class="m-0"><%= link_to task.title, task_path(task), style: 'text-decoration: none; color: black' %></p>
-        <p class="m-0 ml-auto"><%= link_to "Delete", task_path(task), class: 'btn btn-light', style: 'text-decoration: none; color: black', data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></p>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to 'Add a new task', new_task_path, class: 'btn btn-primary mt-4' %>
+<div class="container">
+  <% @articles.each do |article| %>
+    <div class="article">
+      <h3 style:><%= link_to article.title, article_path(article), style: 'text-decoration: none; color: black'%></h3>
+      <p><%= article.content.slice!(0..100).strip %>...</p>
+    </div>
+  <% end %>
 </div>
