@@ -1,8 +1,8 @@
-<div class="container">
-  <% @articles.each do |article| %>
-    <div class="article">
-      <h3 style:><%= link_to article.title, article_path(article), style: 'text-decoration: none; color: black'%></h3>
+<div class="container d-flex justify-content-center">
+  <div class="article">
+    <% @articles.each do |article| %>
+      <h2 style:><%= link_to article.title, article_path(article), style: 'text-decoration: none; color: black'%></h2>
       <p><%= article.content.slice!(0..100).strip %>...</p>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
